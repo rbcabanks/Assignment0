@@ -12,16 +12,19 @@ function main() {
   var ctx = canvas.getContext('2d');
 
   // Draw a blue rectangle
-  ctx.fillStyle = 'rgba(0, 0, 255, 1.0)'; // Set color to blue
-  ctx.fillRect(120, 10, 150, 150);        // Fill a rectangle with the color
+  ctx.fillStyle = 'black'; // Set color to blue
+  ctx.fillRect(0, 0, 400, 400);        // Fill a rectangle with the color
 
   let v1 = new Vector3(120, 10, 0);
-  drawVector(ctx,v1,'red');
+  drawVector(ctx, v1, 'red');
 }
 
-function drawVector(canv,v,c){
+function drawVector(canv, v, c) {
+  //Used this resource https://www.w3schools.com/tags/canvas_stroke.asp
   canv.beginPath();
-  canv.moveTo(125, 20);
-  canv.lineTo(170, 120);
+  canv.moveTo(20*.25,10);
+  canv.lineTo(20*.25, 120);
+  canv.strokeStyle = "red";
   canv.stroke();
+
 }
