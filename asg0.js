@@ -132,5 +132,27 @@ function handleDrawOperationEvent() {
     console.log(v4);
     drawVector(v4, 'green')
   }
+  else if (val=="magnitude"){
+    console.log(v1.magnitude());
+    console.log(v2.magnitude());
+  }
+  else if (val=="normalize"){
+    // this resource helped me think about normalization https://www.khanacademy.org/computing/computer-programming/programming-natural-simulations/programming-vectors/a/vector-magnitude-normalization
+    let v3 = new Vector3(); //v1
+    v3.set(v1);
+    var mag=v3.magnitude;
+    v3.div(mag);
+    console.log(v3);
+    drawVector(v3, 'green')
+
+    let v4 = new Vector3(); //v2
+    v4.set(v2);
+    var mag=v4.magnitude;
+    v4.div(mag);
+    console.log(v4);
+    drawVector(v4, 'green')
+
+
+  }
 
 }
