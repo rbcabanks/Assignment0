@@ -133,33 +133,43 @@ function handleDrawOperationEvent() {
     drawVector(v4, 'green')
   }
   else if (val == "magnitude") {
-    console.log(v1.magnitude());
-    console.log(v2.magnitude());
+    console.log("V1 Magnitude:" + v1.magnitude());
+    console.log("V2 Magnitude:" + v2.magnitude());
   }
   else if (val == "normalize") {
     // this resource helped me think about normalization https://www.khanacademy.org/computing/computer-programming/programming-natural-simulations/programming-vectors/a/vector-magnitude-normalization
     let v3 = new Vector3(); //v1
     v3.set(v1);
     v3.normalize();
-    console.log(v3);
+    //console.log(v3);
     drawVector(v3, 'green')
 
     let v4 = new Vector3(); //v2
     v4.set(v2);
     v4.normalize();
-    console.log(v4);
+    //console.log(v4);
     drawVector(v4, 'green')
   }
   else if (val == "angle") {
+    //https://www.geeksforgeeks.org/angle-between-two-vectors-formula/
     var dotProduct = Vector3.dot(v1, v2);
-    console.log(dotProduct);
-    var mag=(v1.magnitude() * v2.magnitude())
-    console.log(mag);
-    if(mag>0){
+    //console.log(dotProduct);
+    var mag = (v1.magnitude() * v2.magnitude())
+    //console.log(mag);
+    if (mag > 0) {
       dotProduct = dotProduct / mag;
-      console.log(dotProduct)
-      dotProduct=Math.acos(dotProduct);
+      //console.log(dotProduct)
+      dotProduct = Math.acos(dotProduct);
     }
-    console.log((dotProduct*180/Math.PI))//convert from radians to degrees
+    console.log("Angle Between:"(dotProduct * 180 / Math.PI))//convert from radians to degrees
   }
+  else if (val == "area") {
+    areaTriangle(v1, v2);
+  }
+}
+function areaTriangle(v1, v2) {
+  let v5=Vector3.cross(v1, v2);
+  var area = v5.magnitude();
+  area = area / 2;
+  console.log("Area:" + area);
 }
