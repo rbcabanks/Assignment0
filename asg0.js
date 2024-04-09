@@ -1,15 +1,14 @@
 // DrawTriangle.js (c) 2012 matsuda
+var canvas = document.getElementById('example');
+var ctx = canvas.getContext('2d');
+
+
 function main() {
   // Retrieve <canvas> element
-  var canvas = document.getElementById('example');
   if (!canvas) {
     console.log('Failed to retrieve the <canvas> element');
     return false;
   }
-
-  // Get the rendering context for 2DCG
-  var ctx = canvas.getContext('2d');
-
   // Draw a blue rectangle
   ctx.fillStyle = 'black'; // Set color to blue
   ctx.fillRect(0, 0, canvas.width, canvas.height);        // Fill a rectangle with the color
@@ -22,33 +21,18 @@ function main() {
 
 function drawVector(v, c) {
   // got a lot of help from the 5 Assignment 0 Examples on youtube
-  //needed to define canvas and ctx becuase this function is outside of main.
-  var canvas = document.getElementById('example');
-  if (!canvas) {
-    console.log('Failed to retrieve the <canvas> element');
-    return false;
-  }
 
-  var ctx = canvas.getContext("2d");
   ctx.strokeStyle = c;
   let cx = canvas.width / 2;
   let cy = canvas.height / 2;
   ctx.beginPath();
   ctx.moveTo(cx, cy);
-  //ctx.lineTo(cx+75,cy+75)
   ctx.lineTo(cx + (20 * v.elements[0]), cy - (20 * v.elements[1]))
   ctx.stroke();
 
 }
 
 function clear() {
-  var canvas = document.getElementById('example');
-  if (!canvas) {
-    console.log('Failed to retrieve the <canvas> element');
-    return false;
-  }
-
-  var ctx = canvas.getContext("2d");
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = 'black'; // Set color to blue
   ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -111,9 +95,42 @@ function handleDrawOperationEvent() {
   if (val == "add") {
     let v3 = new Vector3();
     v3.set(v1);
+    v3.add(v2);
     console.log(v3);
-    v2.add(v3);
+    drawVector(v3, 'green')
+  }
+  else if (val == "sub") {
+    let v3 = new Vector3();
+    v3.set(v1);
+    v3.sub(v2);
     console.log(v3);
+    drawVector(v3, 'green')
+  }
+  else if (val == "mul") {
+    let v3 = new Vector3(); //v1*s
+    v3.set(v1);
+    v3.mul(scalar);
+    console.log(v3);
+    drawVector(v3, 'green')
+
+    let v4 = new Vector3(); //v2*s
+    v4.set(v2);
+    v4.mul(scalar);
+    console.log(v4);
+    drawVector(v4, 'green')
+  }
+  else if (val == "div") {
+    let v3 = new Vector3(); //v1/s
+    v3.set(v1);
+    v3.div(scalar);
+    console.log(v3);
+    drawVector(v3, 'green')
+
+    let v4 = new Vector3(); //v2/s
+    v4.set(v2);
+    v4.div(scalar);
+    console.log(v4);
+    drawVector(v4, 'green')
   }
 
 }
