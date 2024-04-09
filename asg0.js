@@ -132,11 +132,11 @@ function handleDrawOperationEvent() {
     console.log(v4);
     drawVector(v4, 'green')
   }
-  else if (val=="magnitude"){
+  else if (val == "magnitude") {
     console.log(v1.magnitude());
     console.log(v2.magnitude());
   }
-  else if (val=="normalize"){
+  else if (val == "normalize") {
     // this resource helped me think about normalization https://www.khanacademy.org/computing/computer-programming/programming-natural-simulations/programming-vectors/a/vector-magnitude-normalization
     let v3 = new Vector3(); //v1
     v3.set(v1);
@@ -149,8 +149,11 @@ function handleDrawOperationEvent() {
     v4.normalize();
     console.log(v4);
     drawVector(v4, 'green')
-
-
+  }
+  else if (val == "angle") {
+    var dotProduct = dot(v1, v2);
+    docProduct = dotProduct * Math.cos(alpha)
+    console.log(dotProduct)
   }
 
 }
