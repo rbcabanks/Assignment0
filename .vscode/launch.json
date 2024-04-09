@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/rebecca/Documents/GitHub/Assignment0/lib",
-      "program": "/Users/rebecca/Documents/GitHub/Assignment0/lib/build/Debug/outDebug"
+      "cwd": "/Users/rebecca/Documents/GitHub/Assignment0/Main Code/lib",
+      "program": "/Users/rebecca/Documents/GitHub/Assignment0/Main Code/lib/build/Debug/outDebug"
     }
   ]
 }
