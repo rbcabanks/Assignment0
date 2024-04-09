@@ -151,9 +151,15 @@ function handleDrawOperationEvent() {
     drawVector(v4, 'green')
   }
   else if (val == "angle") {
-    var dotProduct = dot(v1, v2);
-    docProduct = dotProduct * Math.cos(alpha)
-    console.log(dotProduct)
+    var dotProduct = Vector3.dot(v1, v2);
+    console.log(dotProduct);
+    var mag=(v1.magnitude() * v2.magnitude())
+    console.log(mag);
+    if(mag>0){
+      dotProduct = dotProduct / mag;
+      console.log(dotProduct)
+      dotProduct=Math.acos(dotProduct);
+    }
+    console.log((dotProduct*180/Math.PI))//convert from radians to degrees
   }
-
 }
